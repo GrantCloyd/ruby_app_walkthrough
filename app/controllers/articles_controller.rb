@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
     def edit
       @article = Article.find(params[:id])
     rescue ActiveRecord::RecordNotFound => exception
-      redirect_to '/public/404.html'
+      redirect_to '/404'
     end
 
     def update
