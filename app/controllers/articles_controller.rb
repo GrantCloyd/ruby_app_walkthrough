@@ -24,6 +24,22 @@ class ArticlesController < ApplicationController
       end
     end
 
+    def edit
+      @article = Article.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => exception
+      redirect_to '/public/404.html'
+    end
+
+    def update
+      @article = Article.find(params[:id])
+      if @article.update(article_params)
+        flash[:notice] = "Article was updated successfully"
+        redirect_to @article
+      else
+       render 'edit'
+      end
+    end
+
 
     private 
     

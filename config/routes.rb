@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :articles, only: [:show, :index, :new, :create]
+  resources :articles, except: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'pages#home'
   get 'about', to: "pages#about"
-end
+  get '/404', to: "errors#not_found"
+ end
