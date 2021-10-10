@@ -4,4 +4,4 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: "pages#about"
   get '/404', to: "errors#not_found"
- end
+end
